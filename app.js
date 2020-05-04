@@ -14,18 +14,24 @@
 var Seattle = {
   minCustomers: 23,
   maxCustomers: 65,
-  avgCookies: 6.3,
+  avgCookies: 6.3, // multiply by random customers and put into array for cookies/hour
   hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
   cookiesPerHour: [],
   randomCustomersPerHour: function() {
   for (var i = 0; i < this.hoursOfOperation.length; i++) {
     var randomCustomers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
   }
+  // findCookiesPerHour: function () {
+  //   for (var i = 0; i < this.hoursOfOperation.length; i++) {
+  //     return this.avgCookies * this.randomCustomersPerHour;
+  //   }
+  // }
     console.log(randomCustomers);
   },
 };
 
-randomCustomersPerHour(minCustomers, maxCustomers);
+Seattle.randomCustomersPerHour();
+// Seattle.findCookiesPerHour();
 
 // generateRandomCustPerHour: function() {
   //   for(var i = 0; i < this.hoursOfOps.length; i++) {
