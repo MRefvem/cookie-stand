@@ -14,16 +14,39 @@ function Location(name, minCustomers, maxCustomers, avgCookies, customersPerHour
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers,
   this.avgCookies = avgCookies;
+  this.hoursOfOperation = hoursOfOperation;
   this.customersPerHour = customersPerHour;
   this.cookiesPerHour = cookiesPerHour;
   this.dailyTotal = dailyTotal;
 }
 
-var seattle = new Location('Seattle', 23, 65, 6.3, [], [], 0);
-var tokyo = new Location('Tokyo', 3, 24, 1.2, [], [], 0);
-var dubai = new Location('Dubai', 11, 38, 3.7, [], [], 0);
-var paris = new Location('Paris', 20, 38, 2.3, [], [], 0);
-var lima = new Location('Lima', 2, 16, 4.6, [], [], 0);
+Location.prototype.randomCustomersPerHour = function(){
+  for (var i = 0; i < this.hoursOfOperation.length; i++){
+    var randomCustomers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+    this.customersPerHour.push(randomCustomers);
+  }
+  console.log('Seattle: Customers per hour',this.customersPerHour);
+};
+
+Location.prototype.findCookiesPerHour = function(){
+  for (var i = 0; i < this.hoursOfOperation.length-1; i++){
+    var perHour = Math.round(this.avgCookies * this.customersPerHour[i]);
+    this.cookiesPerHour.push(perHour);
+    this.dailyTotal = this.dailyTotal + perHour;
+  }
+  console.log('Seattle: Cookies per hour',this.cookiesPerHour);
+};
+
+var seattle = new Location('Seattle', 23, 65, 6.3, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'], [], [], 0);
+var tokyo = new Location('Tokyo', 3, 24, 1.2, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'], [], [], 0);
+var dubai = new Location('Dubai', 11, 38, 3.7, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'], [], [], 0);
+var paris = new Location('Paris', 20, 38, 2.3, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'], [], [], 0);
+var lima = new Location('Lima', 2, 16, 4.6, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'], [], [], 0);
+
+seattle.randomCustomersPerHour();
+tokyo.randomCustomersPerHour();
+
+seattle.findCookiesPerHour();
 
 console.log(seattle, tokyo, dubai, paris, lima);
 
