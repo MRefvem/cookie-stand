@@ -22,3 +22,4 @@ tableRow.appendChild(tableHeader);
 tableHeader = document.createElement('th');
 tableHeader.textContent = 'Type';
 tableRow.appendChild(tableHeader);
+parentElement.appendChild(tableRow);
