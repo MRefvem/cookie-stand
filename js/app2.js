@@ -59,6 +59,11 @@ Location.prototype.renderList = function(){
     var listItem = document.createElement('li');
     listItem.textContent = (`${this.hoursOfOperation[i]}: ${this.cookiesPerHour[i]} cookies`);
     parent.appendChild(listItem);
+    // Experimenting with trying to call all of my functions here in an effor to try to save some space further down.
+    // this.name.randomCustomersPerHour();
+    // this.name.findCookiesPerHour();
+    // this.name.sumCookiesPerDay();
+    // this.name.render();
   }
 };
 
