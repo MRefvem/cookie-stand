@@ -16,7 +16,7 @@ var Seattle = {
   minCustomers: 23,
   maxCustomers: 65,
   avgCookies: 6.3, // multiply by random customers and put into array for  cookies/hour
-  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
   customersPerHour: [],
   cookiesPerHour: [],
   dailyTotal: 0,
@@ -29,17 +29,23 @@ var Seattle = {
   },
   findCookiesPerHour: function(){ 
     for (var i = 0; i < this.hoursOfOperation.length; i++){
-      var perHour = Math.round(this.avgCookies * this.randomCustomersPerHour[i]);
+      var perHour = Math.round(this.avgCookies * this.customersPerHour[i]);
       this.cookiesPerHour.push(perHour);
       this.dailyTotal = this.dailyTotal + perHour;
     }
-      console.log('Cookies per hour',this.cookiesPerHour);
+    console.log('Cookies per hour',this.cookiesPerHour);
   },
+  render: function(){
+  var parent = document.getElementById('sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = this.name;
+  parent.appendChild(listItem);
+  }
 }
 
 Seattle.randomCustomersPerHour();
 Seattle.findCookiesPerHour();
-// Seattle.render();
+Seattle.render();
 
 // generateRandomCustPerHour: function() {
   //   for(var i = 0; i < this.hoursOfOps.length; i++) {
@@ -102,9 +108,4 @@ Seattle.findCookiesPerHour();
         console.log();
       },
     }
-                              // render: function(){
-                              //   var parent = document.getElementById('sales-data');
-                              //   var listItem = document.createElement('li');
-                              //   listItem.textContent = this.name;
-                              //   parent.appendChild(listItem);
-                              // }
+    
