@@ -98,14 +98,14 @@ var Tokyo = {
       this.cookiesPerHour.push(perHour);
       this.dailyTotal = this.dailyTotal + perHour;
     }
-    console.log('Seattle: Cookies per hour',this.cookiesPerHour);
+    console.log('Tokyo: Cookies per hour',this.cookiesPerHour);
   },
   sumCookiesPerDay: function(){
     var dailyTotal = 0;
     for (var i = 0; i < this.cookiesPerHour.length; i++) {
       dailyTotal = this.cookiesPerHour[i] + dailyTotal;
     }
-    console.log('Seattle: Cookies per day',this.dailyTotal);
+    console.log('Tokyo: Cookies per day',this.dailyTotal);
     this.cookiesPerHour.push(dailyTotal);
   },
   render: function(){
@@ -127,8 +127,8 @@ var Tokyo = {
 Tokyo.randomCustomersPerHour();
 Tokyo.findCookiesPerHour();
 Tokyo.sumCookiesPerDay();
-// Tokyo.render();
-// Tokyo.renderList();
+Tokyo.render();
+Tokyo.renderList();
 
 
 // DUBAI
