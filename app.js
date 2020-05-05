@@ -27,15 +27,14 @@ var Seattle = {
     }
     console.log('Customers per hour',this.customersPerHour);
   },
-  findCookiesPerHour: function(){
-    this.randomCustomersPerHour(); 
+  findCookiesPerHour: function(){ 
     for (var i = 0; i < this.hoursOfOperation.length; i++){
       var perHour = Math.round(this.avgCookies * this.randomCustomersPerHour[i]);
       this.cookiesPerHour.push(perHour);
       this.dailyTotal = this.dailyTotal + perHour;
     }
       console.log('Cookies per hour',this.cookiesPerHour);
-  }
+  },
 }
 
 Seattle.randomCustomersPerHour();
