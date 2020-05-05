@@ -81,7 +81,7 @@ var Tokyo = {
   minCustomers: 3,
   maxCustomers: 24,
   avgCookies: 1.2,
-  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'],
   customersPerHour: [],
   cookiesPerHour: [],
   dailyTotal: 0,
@@ -93,7 +93,7 @@ var Tokyo = {
     console.log('Tokyo: Customers per hour',this.customersPerHour);
   },
   findCookiesPerHour: function(){ 
-    for (var i = 0; i < this.hoursOfOperation.length; i++){
+    for (var i = 0; i < this.hoursOfOperation.length-1; i++){
       var perHour = Math.round(this.avgCookies * this.customersPerHour[i]);
       this.cookiesPerHour.push(perHour);
       this.dailyTotal = this.dailyTotal + perHour;
@@ -106,6 +106,7 @@ var Tokyo = {
       dailyTotal += this.cookiesPerHour[i]
     }
     console.log('Tokyo: Cookies per day',this.dailyTotal);
+    this.cookiesPerHour.push(dailyTotal);
   },
   render: function(){
     var parent = document.getElementById('tokyo-sales-data');
@@ -137,7 +138,7 @@ var Dubai = {
   minCustomers: 11,
   maxCustomers: 38,
   avgCookies: 3.7,
-  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'],
   customersPerHour: [],
   cookiesPerHour: [],
   dailyTotal: 0,
@@ -149,7 +150,7 @@ var Dubai = {
     console.log('Dubai: Customers per hour',this.customersPerHour);
   },
   findCookiesPerHour: function(){ 
-    for (var i = 0; i < this.hoursOfOperation.length; i++){
+    for (var i = 0; i < this.hoursOfOperation.length-1; i++){
       var perHour = Math.round(this.avgCookies * this.customersPerHour[i]);
       this.cookiesPerHour.push(perHour);
       this.dailyTotal = this.dailyTotal + perHour;
@@ -162,6 +163,7 @@ var Dubai = {
       dailyTotal += this.cookiesPerHour[i]
     }
     console.log('Dubai: Cookies per day',this.dailyTotal);
+    this.cookiesPerHour.push(dailyTotal);
   },
   render: function(){
     var parent = document.getElementById('dubai-sales-data');
@@ -193,7 +195,7 @@ var Paris = {
   minCustomers: 20,
   maxCustomers: 38,
   avgCookies: 2.3,
-  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'],
   customersPerHour: [],
   cookiesPerHour: [],
   dailyTotal: 0,
@@ -205,7 +207,7 @@ var Paris = {
     console.log('Paris: Customers per hour',this.customersPerHour);
   },
   findCookiesPerHour: function(){ 
-    for (var i = 0; i < this.hoursOfOperation.length; i++){
+    for (var i = 0; i < this.hoursOfOperation.length-1; i++){
       var perHour = Math.round(this.avgCookies * this.customersPerHour[i]);
       this.cookiesPerHour.push(perHour);
       this.dailyTotal = this.dailyTotal + perHour;
@@ -218,6 +220,7 @@ var Paris = {
       dailyTotal += this.cookiesPerHour[i]
     }
     console.log('Paris: Cookies per day',this.dailyTotal);
+    this.cookiesPerHour.push(dailyTotal);
   },
   render: function(){
     var parent = document.getElementById('paris-sales-data');
@@ -249,7 +252,7 @@ var Lima = {
   minCustomers: 2,
   maxCustomers: 16,
   avgCookies: 4.6,
-  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hoursOfOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'],
   customersPerHour: [],
   cookiesPerHour: [],
   dailyTotal: 0,
@@ -261,7 +264,7 @@ var Lima = {
     console.log('Lima: Customers per hour',this.customersPerHour);
   },
   findCookiesPerHour: function(){ 
-    for (var i = 0; i < this.hoursOfOperation.length; i++){
+    for (var i = 0; i < this.hoursOfOperation.length-1; i++){
       var perHour = Math.round(this.avgCookies * this.customersPerHour[i]);
       this.cookiesPerHour.push(perHour);
       this.dailyTotal = this.dailyTotal + perHour;
@@ -274,6 +277,7 @@ var Lima = {
       dailyTotal += this.cookiesPerHour[i]
     }
     console.log('Lima: Cookies per day',this.dailyTotal);
+    this.cookiesPerHour.push(dailyTotal);
   },
   render: function(){
     var parent = document.getElementById('seattle-sales-data');
