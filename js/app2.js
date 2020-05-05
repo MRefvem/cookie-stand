@@ -18,14 +18,14 @@ function Location(name, minCustomers, maxCustomers, avgCookies, customersPerHour
   this.customersPerHour = customersPerHour;
   this.cookiesPerHour = cookiesPerHour;
   this.dailyTotal = dailyTotal;
-}
+};
 
 Location.prototype.randomCustomersPerHour = function(){
   for (var i = 0; i < this.hoursOfOperation.length; i++){
     var randomCustomers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
     this.customersPerHour.push(randomCustomers);
   }
-  console.log('Seattle: Customers per hour',this.customersPerHour);
+  console.log(this.name, 'Customers per hour',this.customersPerHour);
 };
 
 Location.prototype.findCookiesPerHour = function(){
@@ -34,7 +34,16 @@ Location.prototype.findCookiesPerHour = function(){
     this.cookiesPerHour.push(perHour);
     this.dailyTotal = this.dailyTotal + perHour;
   }
-  console.log('Seattle: Cookies per hour',this.cookiesPerHour);
+  console.log(this.name, 'Cookies per hour', this.cookiesPerHour);
+};
+
+Location.prototype.sumCookiesPerDay = function(){
+  var dailyTotal = 0;
+  for (var i = 0; i < this.cookiesPerHour.length; i++) {
+    dailyTotal = this.cookiesPerHour[i] + dailyTotal;
+  }
+  console.log(this.name, 'Cookies per day', this.dailyTotal);
+  this.cookiesPerHour.push(dailyTotal);
 };
 
 var seattle = new Location('Seattle', 23, 65, 6.3, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'], [], [], 0);
@@ -44,9 +53,11 @@ var paris = new Location('Paris', 20, 38, 2.3, ['6am', '7am', '8am', '9am', '10a
 var lima = new Location('Lima', 2, 16, 4.6, ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'], [], [], 0);
 
 seattle.randomCustomersPerHour();
-tokyo.randomCustomersPerHour();
-
 seattle.findCookiesPerHour();
+seattle.sumCookiesPerDay();
+
+tokyo.randomCustomersPerHour();
+tokyo.findCookiesPerHour();
 
 console.log(seattle, tokyo, dubai, paris, lima);
 
