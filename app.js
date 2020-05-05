@@ -7,7 +7,7 @@
 // 3. Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated (complete)
 // 4. Store the results for each location in a separate array...perhaps as a property of the object representing that location (complete)
 // 5. Display the values of each array as unordered lists in the browser
-// 6. Calculating the sums of these hourly totals; your output for each location should look like this: (see example on assignment)
+// 6. Calculating the sums of these hourly totals; your output for each location should look like this: (see example on assignment) (complete)
 
 // 7. Display the lists on sales.html. We will be adding features to this application and working with its layout in the upcoming labs.
 
@@ -56,7 +56,85 @@ var Seattle = {
   var listItem = document.createElement('li');
   listItem.textContent = (`${this.hoursOfOperation[0]}: ${this.cookiesPerHour[0]} cookies`);
   parent.appendChild(listItem);  
-  }
+  },
+  render7am: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[1]}: ${this.cookiesPerHour[1]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render8am: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[2]}: ${this.cookiesPerHour[2]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render9am: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[3]}: ${this.cookiesPerHour[3]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render10am: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[4]}: ${this.cookiesPerHour[4]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render11am: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[5]}: ${this.cookiesPerHour[5]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render12pm: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[6]}: ${this.cookiesPerHour[6]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render1pm: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[7]}: ${this.cookiesPerHour[7]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render2pm: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[8]}: ${this.cookiesPerHour[8]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render3pm: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[9]}: ${this.cookiesPerHour[9]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render4pm: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[10]}: ${this.cookiesPerHour[10]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render5pm: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[11]}: ${this.cookiesPerHour[11]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render6pm: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[12]}: ${this.cookiesPerHour[12]} cookies`);
+  parent.appendChild(listItem);  
+  },
+  render7pm: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[13]}: ${this.cookiesPerHour[13]} cookies`);
+  parent.appendChild(listItem);  
+  },
 }
 
 Seattle.randomCustomersPerHour();
@@ -64,6 +142,19 @@ Seattle.findCookiesPerHour();
 Seattle.sumCookiesPerDay();
 Seattle.render();
 Seattle.render6am();
+Seattle.render7am();
+Seattle.render8am();
+Seattle.render9am();
+Seattle.render10am();
+Seattle.render11am();
+Seattle.render12pm();
+Seattle.render1pm();
+Seattle.render2pm();
+Seattle.render3pm();
+Seattle.render4pm();
+Seattle.render5pm();
+Seattle.render6pm();
+Seattle.render7pm();
 
 // generateRandomCustPerHour: function() {
   //   for(var i = 0; i < this.hoursOfOps.length; i++) {
