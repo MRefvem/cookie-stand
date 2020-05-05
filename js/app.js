@@ -90,7 +90,7 @@ var Tokyo = {
       var randomCustomers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
       this.customersPerHour.push(randomCustomers);
     }
-    console.log('Seattle: Customers per hour',this.customersPerHour);
+    console.log('Tokyo: Customers per hour',this.customersPerHour);
   },
   findCookiesPerHour: function(){ 
     for (var i = 0; i < this.hoursOfOperation.length-1; i++){
