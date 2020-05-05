@@ -4,7 +4,7 @@
 
 // Instructions
 // 1. Create a new branch for today's lab. Make sure it has all of your changes from lab 06 so that you can extend the functionality. (complete)
-// 2. Replace all of your object literals for the salmon cookie stand with a single constructor function that, when called with the 'new' keyword, creates a new instance.
+// 2. Replace all of your object literals for the salmon cookie stand with a single constructor function that, when called with the 'new' keyword, creates a new instance. (halfway there)
 // 3. Replace the lists of your data for each store and build a single table of data instead. Display each store's data in a table format. Break each column by the hour and complete each row with a "Daily Location Total".
 
 var hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'];
@@ -76,6 +76,27 @@ seattle.renderList();
 
 tokyo.randomCustomersPerHour();
 tokyo.findCookiesPerHour();
+tokyo.sumCookiesPerDay();
+tokyo.render();
+tokyo.renderList();
+
+dubai.randomCustomersPerHour();
+dubai.findCookiesPerHour();
+dubai.sumCookiesPerDay();
+dubai.render();
+dubai.renderList();
+
+paris.randomCustomersPerHour();
+paris.findCookiesPerHour();
+paris.sumCookiesPerDay();
+paris.render();
+paris.renderList();
+
+lima.randomCustomersPerHour();
+lima.findCookiesPerHour();
+lima.sumCookiesPerDay();
+lima.render();
+lima.renderList();
 
 console.log(seattle, tokyo, dubai, paris, lima);
 
