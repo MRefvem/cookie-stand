@@ -4,8 +4,8 @@
 
 // 1. Stores the min/max hourly customers, and the average cookies per customer, in object properties (complete)
 // 2. Uses a method of that object to generate a random number of customers per hour (complete)
-// 3. Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated (stuck getting this to work)
-// 4. Store the results for each location in a separate array...perhaps as a property of the object representing that location
+// 3. Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated (complete)
+// 4. Store the results for each location in a separate array...perhaps as a property of the object representing that location (complete)
 // 5. Display the values of each array as unordered lists in the browser
 // 6. Calculating the sums of these hourly totals; your output for each location should look like this: (see example on assignment)
 
@@ -20,6 +20,9 @@ var Seattle = {
   customersPerHour: [],
   cookiesPerHour: [],
   dailyTotal: 0,
+  // sum: cookiesPerHour[i].reduce(function(a,b){
+  //   return a + b;
+  // }, 0),
   randomCustomersPerHour: function(){
     for (var i = 0; i < this.hoursOfOperation.length; i++) {
       var randomCustomers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
@@ -35,17 +38,32 @@ var Seattle = {
     }
     console.log('Cookies per hour',this.cookiesPerHour);
   },
+  sumCookiesPerDay: function(){
+    var dailyTotal = 0;
+    for (var i = 0; i < this.cookiesPerHour.length; i++) {
+      dailyTotal += this.cookiesPerHour[i]
+    }
+    console.log('Cookies per day',this.dailyTotal);
+  },
   render: function(){
-  var parent = document.getElementById('sales-data');
-  var listItem = document.createElement('li');
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('p');
   listItem.textContent = this.name;
   parent.appendChild(listItem);
+  },
+  render6am: function(){
+  var parent = document.getElementById('seattle-sales-data');
+  var listItem = document.createElement('li');
+  listItem.textContent = (`${this.hoursOfOperation[0]}: ${this.cookiesPerHour[0]} cookies`);
+  parent.appendChild(listItem);  
   }
 }
 
 Seattle.randomCustomersPerHour();
 Seattle.findCookiesPerHour();
+Seattle.sumCookiesPerDay();
 Seattle.render();
+Seattle.render6am();
 
 // generateRandomCustPerHour: function() {
   //   for(var i = 0; i < this.hoursOfOps.length; i++) {
