@@ -18,7 +18,7 @@ function Location(name, minCustomers, maxCustomers, avgCookies){
 };
 
 
-// Function #1: Random Customers Per Hour
+// Method #1: Random Customers Per Hour
 
 Location.prototype.randomCustomersPerHour = function(){
   for (var i = 0; i < this.hoursOfOperation.length; i++){
@@ -29,7 +29,7 @@ Location.prototype.randomCustomersPerHour = function(){
 };
 
 
-// Function #2: Find Cookies Per Hour
+// Method #2: Find Cookies Per Hour
 
 Location.prototype.findCookiesPerHour = function(){
   for (var i = 0; i < this.hoursOfOperation.length-1; i++){
@@ -41,7 +41,7 @@ Location.prototype.findCookiesPerHour = function(){
 };
 
 
-// Function #3: Sum Cookies Per Day
+// Method #3: Sum Cookies Per Day
 
 Location.prototype.sumCookiesPerDay = function(){
   var dailyTotal = 0;
@@ -53,9 +53,9 @@ Location.prototype.sumCookiesPerDay = function(){
 };
 
 
-// Function #5: Rendering List
+// Method #4: Rendering Data
 
-Location.prototype.renderList = function(){
+Location.prototype.renderData = function(){
   this.randomCustomersPerHour();
   this.findCookiesPerHour();
   this.sumCookiesPerDay();
@@ -75,29 +75,6 @@ Location.prototype.renderList = function(){
 };
 
 
-// Store Locations
-
-var seattle = new Location('Seattle', 23, 65, 6.3);
-var tokyo = new Location('Tokyo', 3, 24, 1.2);
-var dubai = new Location('Dubai', 11, 38, 3.7);
-var paris = new Location('Paris', 20, 38, 2.3);
-var lima = new Location('Lima', 2, 16, 4.6);
-
-
-// Invoking Functions
-
-seattle.renderList();
-tokyo.renderList();
-dubai.renderList();
-paris.renderList();
-lima.renderList();
-
-
-// Console Log
-
-console.log(seattle, tokyo, dubai, paris, lima);
-
-
 // THE TABLE
 // ROW ONE: Hours of Operation
 
@@ -114,7 +91,33 @@ for (var i = 0; i < hoursOfOperation.length; i++){
 parentElement.appendChild(tableRow);
 
 
+// Method #5: Get Totals Per Hour Between All Locations
+
+// Store Locations
+
+var seattle = new Location('Seattle', 23, 65, 6.3);
+var tokyo = new Location('Tokyo', 3, 24, 1.2);
+var dubai = new Location('Dubai', 11, 38, 3.7);
+var paris = new Location('Paris', 20, 38, 2.3);
+var lima = new Location('Lima', 2, 16, 4.6);
+
+
+// Invoking Functions
+
+seattle.renderData();
+tokyo.renderData();
+dubai.renderData();
+paris.renderData();
+lima.renderData();
+
+
+// Console Log
+
+console.log(seattle, tokyo, dubai, paris, lima);
+
+
 // ROW TWO: Seattle
+// Method: give an array, pass into the function this.cookiesPerHour.length[i], pass data through the method
 
 var tableRow = document.createElement('tr');
 var citySeattle = document.createElement('th');
@@ -124,7 +127,7 @@ for (var i = 0; i < seattle.cookiesPerHour.length; i++){
   var tableData = document.createElement('td');
   tableData.textContent = seattle.cookiesPerHour[i];
   tableRow.appendChild(tableData);
-}
+}  
 parentElement.appendChild(tableRow);
 
 
@@ -138,7 +141,7 @@ for (var i = 0; i < tokyo.cookiesPerHour.length; i++){
   var tableData = document.createElement('td');
   tableData.textContent = tokyo.cookiesPerHour[i];
   tableRow.appendChild(tableData);
-}
+}  
 parentElement.appendChild(tableRow);
 
 
@@ -152,7 +155,7 @@ for (var i = 0; i < dubai.cookiesPerHour.length; i++){
   var tableData = document.createElement('td');
   tableData.textContent = dubai.cookiesPerHour[i];
   tableRow.appendChild(tableData);
-}
+}  
 parentElement.appendChild(tableRow);
 
 
@@ -166,7 +169,7 @@ for (var i = 0; i < paris.cookiesPerHour.length; i++){
   var tableData = document.createElement('td');
   tableData.textContent = paris.cookiesPerHour[i];
   tableRow.appendChild(tableData);
-}
+}  
 parentElement.appendChild(tableRow);
 
 
@@ -180,5 +183,19 @@ for (var i = 0; i < lima.cookiesPerHour.length; i++){
   var tableData = document.createElement('td');
   tableData.textContent = lima.cookiesPerHour[i];
   tableRow.appendChild(tableData);
-}
+}  
+parentElement.appendChild(tableRow);
+
+
+// ROW SEVEN: Totals
+
+var tableRow = document.createElement('tr');
+var rowTotals = document.createElement('th');
+rowTotals.textContent = ('Totals');
+tableRow.appendChild(rowTotals);
+for (var i = 0; i < hoursOfOperation.length; i++){
+  var tableData = document.createElement('td');
+  tableData.textContent = hoursOfOperation[i];
+  tableRow.appendChild(tableData);
+}  
 parentElement.appendChild(tableRow);
