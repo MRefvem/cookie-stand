@@ -89,11 +89,15 @@ Location.prototype.renderList = function(){
   var unorderedList = document.createElement('ul');
   var title = document.createElement('p');
   title.textContent = this.name;
-  unorderedList.appendChild(title);
+  // unorderedList.appendChild(title);
+
+
+
+
   for (var i = 0; i < this.hoursOfOperation.length; i++){
     var listItem = document.createElement('li');
     listItem.textContent = (`${this.hoursOfOperation[i]}: ${this.cookiesPerHour[i]} cookies`);
-    unorderedList.appendChild(listItem);
+    // unorderedList.appendChild(listItem);
     // Experimenting with trying to call all of my functions here in an effor to try to save some space further down.
     // this.render();
   }
@@ -151,17 +155,35 @@ lima.renderList();
 console.log(seattle, tokyo, dubai, paris, lima);
 
 
+// THE TABLE
+
 var parentElement = document.getElementById('table');
+
+
+
 var tableRow = document.createElement('tr');
+
+var blankCell = document.createElement('th');
+blankCell.textContent = ('');
+tableRow.appendChild(blankCell);
+
 for (var i = 0; i < hoursOfOperation.length; i++){
   var tableHeader = document.createElement('th');
   tableHeader.textContent = hoursOfOperation[i];
   tableRow.appendChild(tableHeader);
 }
+
+
 parentElement.appendChild(tableRow);
 
 
+// ROW TWO
+
 var tableRow = document.createElement('tr');
+
+var citySeattle = document.createElement('th');
+citySeattle.textContent = seattle.name;
+tableRow.appendChild(citySeattle);
 
 for (var i = 0; i < seattle.cookiesPerHour.length; i++){
   // create the element
@@ -176,6 +198,10 @@ parentElement.appendChild(tableRow);
 
 var tableRow = document.createElement('tr');
 
+var cityTokyo = document.createElement('th');
+cityTokyo.textContent = tokyo.name;
+tableRow.appendChild(cityTokyo);
+
 for (var i = 0; i < tokyo.cookiesPerHour.length; i++){
   // create the element
   var tableData = document.createElement('td');
@@ -188,6 +214,10 @@ for (var i = 0; i < tokyo.cookiesPerHour.length; i++){
 parentElement.appendChild(tableRow);
 
 var tableRow = document.createElement('tr');
+
+var cityDubai = document.createElement('th');
+cityDubai.textContent = dubai.name;
+tableRow.appendChild(cityDubai);
 
 for (var i = 0; i < dubai.cookiesPerHour.length; i++){
   // create the element
@@ -202,6 +232,10 @@ parentElement.appendChild(tableRow);
 
 var tableRow = document.createElement('tr');
 
+var cityParis = document.createElement('th');
+cityParis.textContent = paris.name;
+tableRow.appendChild(cityParis);
+
 for (var i = 0; i < paris.cookiesPerHour.length; i++){
   // create the element
   var tableData = document.createElement('td');
@@ -214,6 +248,10 @@ for (var i = 0; i < paris.cookiesPerHour.length; i++){
 parentElement.appendChild(tableRow);
 
 var tableRow = document.createElement('tr');
+
+var cityLima = document.createElement('th');
+cityLima.textContent = lima.name;
+tableRow.appendChild(cityLima);
 
 for (var i = 0; i < lima.cookiesPerHour.length; i++){
   // create the element
