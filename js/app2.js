@@ -149,3 +149,79 @@ lima.renderList();
 // Console Log
 
 console.log(seattle, tokyo, dubai, paris, lima);
+
+
+var parentElement = document.getElementById('table');
+var tableRow = document.createElement('tr');
+for (var i = 0; i < hoursOfOperation.length; i++){
+  var tableHeader = document.createElement('th');
+  tableHeader.textContent = hoursOfOperation[i];
+  tableRow.appendChild(tableHeader);
+}
+parentElement.appendChild(tableRow);
+
+
+var tableRow = document.createElement('tr');
+
+for (var i = 0; i < seattle.cookiesPerHour.length; i++){
+  // create the element
+  var tableData = document.createElement('td');
+  // give it content
+  tableData.textContent = seattle.cookiesPerHour[i];
+  // append it
+  tableRow.appendChild(tableData);
+}
+
+parentElement.appendChild(tableRow);
+
+var tableRow = document.createElement('tr');
+
+for (var i = 0; i < tokyo.cookiesPerHour.length; i++){
+  // create the element
+  var tableData = document.createElement('td');
+  // give it content
+  tableData.textContent = tokyo.cookiesPerHour[i];
+  // append it
+  tableRow.appendChild(tableData);
+}
+
+parentElement.appendChild(tableRow);
+
+var tableRow = document.createElement('tr');
+
+for (var i = 0; i < dubai.cookiesPerHour.length; i++){
+  // create the element
+  var tableData = document.createElement('td');
+  // give it content
+  tableData.textContent = dubai.cookiesPerHour[i];
+  // append it
+  tableRow.appendChild(tableData);
+}
+
+parentElement.appendChild(tableRow);
+
+var tableRow = document.createElement('tr');
+
+for (var i = 0; i < paris.cookiesPerHour.length; i++){
+  // create the element
+  var tableData = document.createElement('td');
+  // give it content
+  tableData.textContent = paris.cookiesPerHour[i];
+  // append it
+  tableRow.appendChild(tableData);
+}
+
+parentElement.appendChild(tableRow);
+
+var tableRow = document.createElement('tr');
+
+for (var i = 0; i < lima.cookiesPerHour.length; i++){
+  // create the element
+  var tableData = document.createElement('td');
+  // give it content
+  tableData.textContent = lima.cookiesPerHour[i];
+  // append it
+  tableRow.appendChild(tableData);
+}
+
+parentElement.appendChild(tableRow);

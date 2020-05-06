@@ -9,17 +9,34 @@ var parentElement = document.getElementById('table');
 // create a tr
 var tableRow = document.createElement('tr');
 
-// create a th
-var tableHeader = document.createElement('th');
 
-// fill it with content
-tableHeader.textContent = 'Name';
+var array = ['Name', 'Type', 'Color', 'Age'];
 
-// append it to the parent
-tableRow.appendChild(tableHeader);
+for (var i = 0; i < array.length; i++){
 
 // put the 'type' on the table
-tableHeader = document.createElement('th');
-tableHeader.textContent = 'Type';
+var tableHeader = document.createElement('th');
+tableHeader.textContent = array[i];
 tableRow.appendChild(tableHeader);
+
+}
+
+// append the tr to the parent element
+parentElement.appendChild(tableRow);
+
+// make the second row
+
+var fluffy = ['fluffy', 'cat', 'white', 1];
+
+var tableRow = document.createElement('tr');
+
+for (var i = 0; i < fluffy.length; i++){
+  // create the element
+  var tableData = document.createElement('td');
+  // give it content
+  tableData.textContent = fluffy[i];
+  // append it
+  tableRow.appendChild(tableData);
+}
+
 parentElement.appendChild(tableRow);
