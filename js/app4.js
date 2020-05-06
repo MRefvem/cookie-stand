@@ -190,14 +190,15 @@ parentElement.appendChild(tableRow);
 // Practice For Loop
 
 // var hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-var people = ['Spencer', 'Jonathan', 'Tyler', 'Trevor', 'Kamit'];
+// var people = ['Spencer', 'Jonathan', 'Tyler', 'Trevor', 'Kamit'];
 
-for (var i = 0; i < hoursOfOperation.length; i++){
-  console.log(`The time is ${hoursOfOperation[i]}`);
-  var hourlyTotal = 0;
-  
-  for (var j = 0; j < seattle.cookiesPerHour.length; j++){
-    var sumCookiesPerHourAcrossLocations = cookiesPerHour
-    console.log(`The total sales at ${hoursOfOperation[i]} at this location was ${seattle.cookiesPerHour[j]}`);
-  }
-}
+// for (var i = 0; i < hoursOfOperation.length; i++){
+//   console.log(`The time is ${hoursOfOperation[i]}`);
+//   var hourlyTotal = this.cookiesPerHour[i] ;
+
+//   for (var j = 0; j < seattle.cookiesPerHour.length; j++){
+//     var sumCookiesPerHourAcrossLocations = cookiesPerHour
+//     console.log(`The total sales at ${hoursOfOperation[i]} at this location was ${seattle.cookiesPerHour[j]}`);
+//   }
+// }
+
