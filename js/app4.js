@@ -1,21 +1,10 @@
 'use strict'
 
-// Lab: Salmon Cookies Pt. 2
-
-// Instructions
-// 1. Create a new branch for today's lab. Make sure it has all of your changes from lab 06 so that you can extend the functionality. (complete)
-// 2. Replace all of your object literals for the salmon cookie stand with a single constructor function that, when called with the 'new' keyword, creates a new instance. (complete)
-// 3. Replace the lists of your data for each store and build a single table of data instead. Display each store's data in a table format. Break each column by the hour and complete each row with a "Daily Location Total". (complete)
-
-
-
-// My Basic Hours of Operation Array
 
 var hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'];
 
 
-
-// My basic constructor function carrying all variables
+// Constructor Function
 
 function Location(name, minCustomers, maxCustomers, avgCookies){
   this.name = name;
@@ -29,8 +18,7 @@ function Location(name, minCustomers, maxCustomers, avgCookies){
 };
 
 
-
-// Function #1. Getting Random Customers Per Hour
+// Function #1: Random Customers Per Hour
 
 Location.prototype.randomCustomersPerHour = function(){
   for (var i = 0; i < this.hoursOfOperation.length; i++){
@@ -41,8 +29,7 @@ Location.prototype.randomCustomersPerHour = function(){
 };
 
 
-
-// Function #2. Getting Cookies Per Hour
+// Function #2: Find Cookies Per Hour
 
 Location.prototype.findCookiesPerHour = function(){
   for (var i = 0; i < this.hoursOfOperation.length-1; i++){
@@ -54,8 +41,7 @@ Location.prototype.findCookiesPerHour = function(){
 };
 
 
-
-// Function #3. Getting Total Cookies Per Day
+// Function #3: Sum Cookies Per Day
 
 Location.prototype.sumCookiesPerDay = function(){
   var dailyTotal = 0;
@@ -67,19 +53,7 @@ Location.prototype.sumCookiesPerDay = function(){
 };
 
 
-
-// Function #4. Rendering Name
-
-// Location.prototype.render = function(){
-//   var parent = document.getElementById('seattle-sales-data');
-//   var listItem = document.createElement('p');
-//   listItem.textContent = this.name;
-//   parent.appendChild(listItem);
-// };
-
-
-
-// Function #5. Rendering List
+// Function #5: Rendering List
 
 Location.prototype.renderList = function(){
   this.randomCustomersPerHour();
@@ -90,10 +64,6 @@ Location.prototype.renderList = function(){
   var title = document.createElement('p');
   title.textContent = this.name;
   // unorderedList.appendChild(title);
-
-
-
-
   for (var i = 0; i < this.hoursOfOperation.length; i++){
     var listItem = document.createElement('li');
     listItem.textContent = (`${this.hoursOfOperation[i]}: ${this.cookiesPerHour[i]} cookies`);
@@ -105,8 +75,7 @@ Location.prototype.renderList = function(){
 };
 
 
-
-// My Locations with stored vaiable data. I wish I didn't have to write out the entire hoursOfOperation array to get things to work.
+// Store Locations
 
 var seattle = new Location('Seattle', 23, 65, 6.3);
 var tokyo = new Location('Tokyo', 3, 24, 1.2);
@@ -115,39 +84,13 @@ var paris = new Location('Paris', 20, 38, 2.3);
 var lima = new Location('Lima', 2, 16, 4.6);
 
 
+// Invoking Functions
 
-// Calling My Functions. I wish this list wasn't so long.
-
-// seattle.randomCustomersPerHour();
-// seattle.findCookiesPerHour();
-// seattle.sumCookiesPerDay();
-// seattle.render();
 seattle.renderList();
-
-// tokyo.randomCustomersPerHour();
-// tokyo.findCookiesPerHour();
-// tokyo.sumCookiesPerDay();
-// tokyo.render();
 tokyo.renderList();
-
-// dubai.randomCustomersPerHour();
-// dubai.findCookiesPerHour();
-// dubai.sumCookiesPerDay();
-// dubai.render();
 dubai.renderList();
-
-// paris.randomCustomersPerHour();
-// paris.findCookiesPerHour();
-// paris.sumCookiesPerDay();
-// paris.render();
 paris.renderList();
-
-// lima.randomCustomersPerHour();
-// lima.findCookiesPerHour();
-// lima.sumCookiesPerDay();
-// lima.render();
 lima.renderList();
-
 
 
 // Console Log
@@ -156,110 +99,86 @@ console.log(seattle, tokyo, dubai, paris, lima);
 
 
 // THE TABLE
+// ROW ONE: Hours of Operation
 
 var parentElement = document.getElementById('table');
-
-
-
 var tableRow = document.createElement('tr');
-
 var blankCell = document.createElement('th');
 blankCell.textContent = ('');
 tableRow.appendChild(blankCell);
-
 for (var i = 0; i < hoursOfOperation.length; i++){
   var tableHeader = document.createElement('th');
   tableHeader.textContent = hoursOfOperation[i];
   tableRow.appendChild(tableHeader);
 }
-
-
 parentElement.appendChild(tableRow);
 
 
-// ROW TWO
+// ROW TWO: Seattle
 
 var tableRow = document.createElement('tr');
-
 var citySeattle = document.createElement('th');
 citySeattle.textContent = seattle.name;
 tableRow.appendChild(citySeattle);
-
 for (var i = 0; i < seattle.cookiesPerHour.length; i++){
-  // create the element
   var tableData = document.createElement('td');
-  // give it content
   tableData.textContent = seattle.cookiesPerHour[i];
-  // append it
   tableRow.appendChild(tableData);
 }
-
 parentElement.appendChild(tableRow);
 
-var tableRow = document.createElement('tr');
 
+// ROW THREE: Tokyo
+
+var tableRow = document.createElement('tr');
 var cityTokyo = document.createElement('th');
 cityTokyo.textContent = tokyo.name;
 tableRow.appendChild(cityTokyo);
-
 for (var i = 0; i < tokyo.cookiesPerHour.length; i++){
-  // create the element
   var tableData = document.createElement('td');
-  // give it content
   tableData.textContent = tokyo.cookiesPerHour[i];
-  // append it
   tableRow.appendChild(tableData);
 }
-
 parentElement.appendChild(tableRow);
 
-var tableRow = document.createElement('tr');
 
+// ROW FOUR: Dubai
+
+var tableRow = document.createElement('tr');
 var cityDubai = document.createElement('th');
 cityDubai.textContent = dubai.name;
 tableRow.appendChild(cityDubai);
-
 for (var i = 0; i < dubai.cookiesPerHour.length; i++){
-  // create the element
   var tableData = document.createElement('td');
-  // give it content
   tableData.textContent = dubai.cookiesPerHour[i];
-  // append it
   tableRow.appendChild(tableData);
 }
-
 parentElement.appendChild(tableRow);
 
-var tableRow = document.createElement('tr');
 
+// ROW FIVE: Paris
+
+var tableRow = document.createElement('tr');
 var cityParis = document.createElement('th');
 cityParis.textContent = paris.name;
 tableRow.appendChild(cityParis);
-
 for (var i = 0; i < paris.cookiesPerHour.length; i++){
-  // create the element
   var tableData = document.createElement('td');
-  // give it content
   tableData.textContent = paris.cookiesPerHour[i];
-  // append it
   tableRow.appendChild(tableData);
 }
-
 parentElement.appendChild(tableRow);
 
-var tableRow = document.createElement('tr');
 
+// ROW SIX: Lima
+
+var tableRow = document.createElement('tr');
 var cityLima = document.createElement('th');
 cityLima.textContent = lima.name;
 tableRow.appendChild(cityLima);
-
 for (var i = 0; i < lima.cookiesPerHour.length; i++){
-  // create the element
   var tableData = document.createElement('td');
-  // give it content
   tableData.textContent = lima.cookiesPerHour[i];
-  // append it
   tableRow.appendChild(tableData);
 }
-
 parentElement.appendChild(tableRow);
