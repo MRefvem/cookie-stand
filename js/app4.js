@@ -1,7 +1,7 @@
 'use strict'
 
 
-var hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'];
+var hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
 
 
 // Constructor Function
@@ -11,7 +11,7 @@ function Location(name, minCustomers, maxCustomers, avgCookies){
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers,
   this.avgCookies = avgCookies;
-  this.hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'total'];
+  this.hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
   this.customersPerHour = [];
   this.cookiesPerHour = [];
   this.dailyTotal = 0;
@@ -53,28 +53,6 @@ Location.prototype.sumCookiesPerDay = function(){
 };
 
 
-// Method #4: Rendering Data
-
-Location.prototype.renderData = function(){
-  this.randomCustomersPerHour();
-  this.findCookiesPerHour();
-  this.sumCookiesPerDay();
-  var parent = document.getElementById('sales-data');
-  var unorderedList = document.createElement('ul');
-  var title = document.createElement('p');
-  title.textContent = this.name;
-  // unorderedList.appendChild(title);
-  for (var i = 0; i < this.hoursOfOperation.length; i++){
-    var listItem = document.createElement('li');
-    listItem.textContent = (`${this.hoursOfOperation[i]}: ${this.cookiesPerHour[i]} cookies`);
-    // unorderedList.appendChild(listItem);
-    // Experimenting with trying to call all of my functions here in an effor to try to save some space further down.
-    // this.render();
-  }
-  parent.appendChild(unorderedList);
-};
-
-
 // THE TABLE
 // ROW ONE: Hours of Operation
 
@@ -90,10 +68,17 @@ for (var i = 0; i < hoursOfOperation.length; i++){
 }
 parentElement.appendChild(tableRow);
 
+Location.prototype.renderTable = function(){
+  this.randomCustomersPerHour();
+  this.findCookiesPerHour();
+  this.sumCookiesPerDay();
+};
+
+
 
 // Method #5: Get Totals Per Hour Between All Locations
 
-// Store Locations
+// Object Instances: Store Locations
 
 var seattle = new Location('Seattle', 23, 65, 6.3);
 var tokyo = new Location('Tokyo', 3, 24, 1.2);
@@ -104,11 +89,11 @@ var lima = new Location('Lima', 2, 16, 4.6);
 
 // Invoking Functions
 
-seattle.renderData();
-tokyo.renderData();
-dubai.renderData();
-paris.renderData();
-lima.renderData();
+seattle.renderTable();
+tokyo.renderTable();
+dubai.renderTable();
+paris.renderTable();
+lima.renderTable();
 
 
 // Console Log
@@ -199,3 +184,21 @@ for (var i = 0; i < hoursOfOperation.length; i++){
   tableRow.appendChild(tableData);
 }  
 parentElement.appendChild(tableRow);
+
+
+
+// Practice For Loop
+
+// var hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+// var people = ['Spencer', 'Jonathan', 'Tyler', 'Trevor', 'Kamit'];
+
+// for (var i = 0; i < hoursOfOperation.length; i++){
+//   console.log(`The time is ${hoursOfOperation[i]}`);
+//   var hourlyTotal = this.cookiesPerHour[i] ;
+
+//   for (var j = 0; j < seattle.cookiesPerHour.length; j++){
+//     var sumCookiesPerHourAcrossLocations = cookiesPerHour
+//     console.log(`The total sales at ${hoursOfOperation[i]} at this location was ${seattle.cookiesPerHour[j]}`);
+//   }
+// }
+
