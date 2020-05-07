@@ -1,7 +1,8 @@
 'use strict'
 
 
-var hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+var hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Total'];
+var allStores = [];
 
 
 // Constructor Function
@@ -11,10 +12,11 @@ function Location(name, minCustomers, maxCustomers, avgCookies){
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers,
   this.avgCookies = avgCookies;
-  this.hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+  this.hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Total'];
   this.customersPerHour = [];
   this.cookiesPerHour = [];
   this.dailyTotal = 0;
+  allStores.push(this);
 };
 
 
@@ -76,7 +78,6 @@ Location.prototype.renderTable = function(){
 
 
 
-// Method #5: Get Totals Per Hour Between All Locations
 
 // Object Instances: Store Locations
 
@@ -172,33 +173,47 @@ for (var i = 0; i < lima.cookiesPerHour.length; i++){
 parentElement.appendChild(tableRow);
 
 
+// ROW SEVEN: Totals/Render Footer Row
+
+function renderFooterRow(){
+  var tableRow = document.createElement('tr');
+  var tableData = document.createElement('th');
+  tableData.textContent = 'Hourly Total';
+  tableRow.appendChild(tableData);
+  // outer loop: for each hour
+  // inner loop is going to loop over each store
+  // access my cookies
+  
+  for(var i = 0; i < hoursOfOperation.length; i++){
+    var sum = 0;
+    for(var j = 0; j < allStores.length; j++){
+      console.log('inner loop', sum);
+      sum += allStores[j].cookiesPerHour[i]
+      
+    }
+    //create a table row
+    tableData = document.createElement('td');
+    tableData.textContent = (sum);
+    tableRow.appendChild(tableData);
+    // create a td
+    // fill it with the sum
+    // append
+    parentElement.appendChild(tableRow); 
+  } console.log('after the inner loop', sum);
+}
+
+renderFooterRow();
+
+
 // ROW SEVEN: Totals
 
-var tableRow = document.createElement('tr');
-var rowTotals = document.createElement('th');
-rowTotals.textContent = ('Totals');
-tableRow.appendChild(rowTotals);
-for (var i = 0; i < hoursOfOperation.length; i++){
-  var tableData = document.createElement('td');
-  tableData.textContent = hoursOfOperation[i];
-  tableRow.appendChild(tableData);
-}  
-parentElement.appendChild(tableRow);
-
-
-
-// Practice For Loop
-
-// var hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-// var people = ['Spencer', 'Jonathan', 'Tyler', 'Trevor', 'Kamit'];
-
+// var tableRow = document.createElement('tr');
+// var rowTotals = document.createElement('th');
+// rowTotals.textContent = ('Totals');
+// tableRow.appendChild(rowTotals);
 // for (var i = 0; i < hoursOfOperation.length; i++){
-//   console.log(`The time is ${hoursOfOperation[i]}`);
-//   var hourlyTotal = this.cookiesPerHour[i] ;
-
-//   for (var j = 0; j < seattle.cookiesPerHour.length; j++){
-//     var sumCookiesPerHourAcrossLocations = cookiesPerHour
-//     console.log(`The total sales at ${hoursOfOperation[i]} at this location was ${seattle.cookiesPerHour[j]}`);
-//   }
-// }
-
+//   var tableData = document.createElement('td');
+//   tableData.textContent = hoursOfOperation[i];
+//   tableRow.appendChild(tableData);
+// }  
+// parentElement.appendChild(tableRow);
