@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forms Demo</title>
+  </head>
+  <body>
+    <header>
+      <h1>Forms are awesome!</h1>
+    </header>
+    <main>
+      <form id="form">
+        <fieldset>
+          <label>name
+          <input name="username" required placeholder="bob" type="text" />
+          </label>
+          <label>
+            <textarea name="story" type="text"></textarea>
+          </label>
+          <label>
+            <input type="checkbox" name="free" value="movies">Movies</input>
+            <input type="checkbox" name="free" value="hiking">Hiking</input>
+            <input type="checkbox" name="free" value="friends">Friends</input>
+          </label>
+          <input type="submit" name="create" value="submit" />
+          <!-- <button>submit</button> -->
+          <p>Please choose your favorite music
+            <br />
+              <input type="radio" name="music" value="classical" checked="checked" />Classical
+              <input type="radio" name="music" value="jazz" checked="checked" />Jazz
+              <input type="radio" name="music" value="rock" checked="checked" />Rock
+              <input type="radio" name="music" value="rap" checked="checked" />Rap
+            </p>
+          <p>What computer do you use?</p>
+          <select name="computers">
+            <option value="Mac">Mac</option>
+            <option value="Windows">Windows</option>
+            <option value="Linux">Linux</option>
+          </select>
+          <p>Do you play an instrument?</p>
+          <select name="instruments" size="3" multiple="multiple">
+            <option value="piano" selected="selected">Piano</option>
+            <option value="voice" selected="selected">Voice</option>
+            <option value="oboe" selected="selected">Oboe</option>
+          </select>
+          <p>Upload a picture of your pet</p>
+          <input type="file" name="user-pet" />
+          <br />
+          <input type="submit" value="upload" />
+        </fieldset>
+      </form>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="js/demo.js"></script>
+  </body>
+</html>
