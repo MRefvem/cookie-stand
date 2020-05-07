@@ -82,7 +82,7 @@ function renderTableHead(){
     tableRow.appendChild(tableHeader);
   }
   parentElement.appendChild(tableRow);
-}
+};
 
 
 // ROW TWO: Render Locations
@@ -98,7 +98,7 @@ Location.prototype.renderLocations = function(){
     tableRow.appendChild(tableData);
   }  
   parentElement.appendChild(tableRow);
-}
+};
 
 
 // ROW THREE: Totals/Render Footer Row
@@ -108,30 +108,22 @@ function renderFooterRow(){
   var tableData = document.createElement('th');
   tableData.textContent = 'Hourly Total';
   tableRow.appendChild(tableData);
-  // outer loop: for each hour
-  // inner loop is going to loop over each store
-  // access my cookies
-  
   for(var i = 0; i < hoursOfOperation.length; i++){
     var sum = 0;
     for(var j = 0; j < allStores.length; j++){
       console.log('inner loop', sum);
-      sum += allStores[j].cookiesPerHour[i]
-      
+      sum += allStores[j].cookiesPerHour[i] 
     }
-    //create a table row
     tableData = document.createElement('td');
     tableData.textContent = (sum);
     tableRow.appendChild(tableData);
-    // create a td
-    // fill it with the sum
-    // append
     parentElement.appendChild(tableRow); 
   } console.log('after the inner loop', sum);
-}
+};
 
 
-Method 
+// Method: Rendering Functions/Methods
+
 Location.prototype.renderTable = function(){
   this.randomCustomersPerHour();
   this.findCookiesPerHour();
