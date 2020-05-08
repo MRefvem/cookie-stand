@@ -15,7 +15,6 @@
   // get all the information from the form
     // name
     // story
-    // freetime
 
     // use that to make a new object instance
 
@@ -28,7 +27,6 @@ var allPeople = [];
 function Person(name, story){
   this.name = name;
   this.story = story;
-
   allPeople.push(this);
 }
 
@@ -53,3 +51,15 @@ form.addEventListener('submit', handleFormSubmit);
 // we already have global variables, constructor function
 
 // need to set up listeners, handler and then put at bottom, listener goes at very bottom
+
+
+// create a form that can create a new object instance
+// object instances already contain: this.name, this.minCustomers, this.maxCustomers, this.avgCookies
+// utilize the <fieldset> tag in HTML
+// 
+
+// getElementById, if you want to delete everthign in an Array, stay in position zero
+
+.remove()
+
+// empty array as a global variable to store objects
