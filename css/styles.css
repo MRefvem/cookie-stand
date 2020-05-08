@@ -2,6 +2,31 @@
   background-color: sienna;
 }
 
+
+body {
+  padding: 20px;
+  border-width: 3px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+h1 {
+  font-size: 300%;
+  margin-top: 30px;
+  font-weight: normal;
+
+}
+
+
+h2 {
+  font-size: 200%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
 p {
   color: blue;
+  border: 10px;
+  border-color: teal;
 }
