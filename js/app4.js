@@ -162,7 +162,7 @@ Location.prototype.renderAllPreviousMethods = function(){
 
 // Console Log
 
-// console.log(seattle, tokyo, dubai, paris, lima);
+console.log(seattle, tokyo, dubai, paris, lima);
 
 
 // Invoking Functions/Methods
